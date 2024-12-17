@@ -1,0 +1,19 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 904px;
+  margin: 0 auto;
+  padding-top: 30px;
+
+  &__btn {
+    align-self: flex-end;
+  }
+
+  &__card {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}

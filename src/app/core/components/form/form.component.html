@@ -1,0 +1,49 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{productToEdit ? 'Update Product' : 'New Product'}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name" class="col-form-label">Product Name:</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <div *ngIf="getErrorMessage('name')" class="text-danger">
+              {{ getErrorMessage('name') }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description" class="col-form-label">Product Description:</label>
+            <textarea class="form-control" id="description" formControlName="description"></textarea>
+            <div *ngIf="getErrorMessage('description')" class="text-danger">
+              {{ getErrorMessage('description') }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price" class="col-form-label">Product Name:</label>
+            <input type="text" class="form-control" id="price" formControlName="price">
+            <div *ngIf="getErrorMessage('price')" class="text-danger">
+              {{ getErrorMessage('price') }}
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button 
+          [disabled]="form.invalid" 
+          class="btn btn-primary" 
+          type="submit" 
+          (click)="onSubmit()" 
+          data-dismiss="modal"
+        >
+          {{productToEdit ? 'Update' : 'Create'}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.product-card {
+  padding: 10px 10px 0 0;
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
